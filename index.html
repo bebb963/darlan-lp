@@ -28,6 +28,8 @@
 </head>
 <body>
 
+<div class="ambient-bg" aria-hidden="true"></div>
+
 <!-- Nav -->
 <header class="nav" id="nav">
   <div class="nav-inner">
@@ -91,7 +93,7 @@
 </section>
 
 <!-- Release -->
-<section class="section" id="release">
+<section class="section grain" id="release">
   <div class="container release-grid">
     <div class="polaroid reveal">
       <img src="assets/img/darlan-palco.jpg" alt="Darlan Alves cantando ao vivo" loading="lazy"/>
@@ -148,7 +150,7 @@
         </div>
         <div class="show-body">
           <h3>Lembranças</h3>
-          <p>Show com clássicas do sertanejo romântico, arrocha e xote. Ambiente acolhedor e conexão emocional: a proposta é fazer o público relembrar e sentir através das músicas que marcaram suas vidas.</p>
+          <p>Grandes clássicos do sertanejo romântico, arrocha e xote reunidos em uma apresentação envolvente. Um show criado para conectar gerações, despertar memórias inesquecíveis e emocionar o público a cada música.</p>
         </div>
       </article>
     </div>
@@ -163,22 +165,25 @@
     <p class="reveal reveal-d1" style="color:var(--plateia);max-width:560px;margin-bottom:clamp(32px,4vw,48px)">Estes são apenas alguns destaques dos nossos vídeos e registros ao vivo. Acesse o canal completo para conferir todo o repertório.</p>
     <div class="videos-grid">
       <div class="video-media-wrap reveal">
-        <a href="https://www.youtube.com/watch?v=e4mxDVijPwo" target="_blank" rel="noopener" class="video-facade" aria-label="Assistir Entregador de Flores no YouTube">
+        <button type="button" class="video-facade" data-video-id="e4mxDVijPwo" aria-label="Reproduzir Entregador de Flores">
           <img src="https://img.youtube.com/vi/e4mxDVijPwo/hqdefault.jpg" alt="Entregador de Flores - Darlan Alves" loading="lazy"/>
           <div class="video-play-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        </a>
+        </button>
+        <noscript><a href="https://www.youtube.com/watch?v=e4mxDVijPwo" target="_blank" rel="noopener">Assistir Entregador de Flores no YouTube</a></noscript>
       </div>
       <div class="video-media-wrap reveal reveal-d1">
-        <a href="https://www.youtube.com/watch?v=eaywOI8GE38" target="_blank" rel="noopener" class="video-facade" aria-label="Assistir Pisei na Bola no YouTube">
+        <button type="button" class="video-facade" data-video-id="eaywOI8GE38" aria-label="Reproduzir Pisei na Bola">
           <img src="https://img.youtube.com/vi/eaywOI8GE38/hqdefault.jpg" alt="Pisei na Bola - Darlan Alves" loading="lazy"/>
           <div class="video-play-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        </a>
+        </button>
+        <noscript><a href="https://www.youtube.com/watch?v=eaywOI8GE38" target="_blank" rel="noopener">Assistir Pisei na Bola no YouTube</a></noscript>
       </div>
       <div class="video-media-wrap reveal reveal-d2">
-        <a href="https://www.youtube.com/watch?v=5rR1jYk5f5w" target="_blank" rel="noopener" class="video-facade" aria-label="Assistir Apresentação Especial no YouTube">
+        <button type="button" class="video-facade" data-video-id="5rR1jYk5f5w" aria-label="Reproduzir Apresentação Especial">
           <img src="https://img.youtube.com/vi/5rR1jYk5f5w/hqdefault.jpg" alt="Apresentação Especial - Darlan Alves" loading="lazy"/>
           <div class="video-play-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        </a>
+        </button>
+        <noscript><a href="https://www.youtube.com/watch?v=5rR1jYk5f5w" target="_blank" rel="noopener">Assistir Apresentação Especial no YouTube</a></noscript>
       </div>
     </div>
     <div class="videos-cta reveal">
@@ -191,7 +196,7 @@
 </section>
 
 <!-- Músicas -->
-<section class="section" id="musicas">
+<section class="section grain" id="musicas">
   <div class="glow-canto" style="bottom:-200px;left:-200px"></div>
   <div class="container">
     <div class="musicas-head">
@@ -221,7 +226,7 @@
     <div>
       <div class="kicker reveal"><span class="line"></span><span class="label">Shows e Eventos</span></div>
       <h2 class="h-section reveal" style="margin-bottom:20px">Leve o Darlan<br/>para o <span style="color:var(--ouro)">seu evento</span></h2>
-      <p class="reveal reveal-d1" style="color:var(--plateia);max-width:440px;margin-bottom:34px">Fale direto com a produção para orçamentos, datas disponíveis e formatos de show — do voz e violão intimista à banda completa.</p>
+      <p class="reveal reveal-d1" style="color:var(--plateia);max-width:440px;margin-bottom:34px">Fale direto com a produção para orçamentos, datas disponíveis e formatos de show para o seu evento.</p>
       <div class="contato-canais">
         <div class="canal reveal reveal-d1">
           <div class="canal-icone"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8c.1-3.2 1.7-4.8 4.9-4.9 1.2-.1 1.6-.1 4.8-.1zm0 3.6a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9z"/></svg></div>
@@ -237,7 +242,7 @@
         <img src="assets/img/show-paulinia.jpg" alt="Darlan Alves ao vivo no palco" loading="lazy"/>
         <div class="form-banner-overlay">
           <span class="label">Show Ao Vivo</span>
-          <small>Banda Completa ou Voz &amp; Violão</small>
+          <small>Banda Completa e Produção Exclusiva</small>
         </div>
       </div>
       <span class="label">Solicite um orçamento</span>
@@ -272,7 +277,7 @@
 </section>
 
 <!-- Galeria -->
-<section class="section" id="galeria">
+<section class="section grain" id="galeria">
   <div class="glow-canto" style="top:-160px;right:20%"></div>
   <div class="container">
     <div class="kicker reveal"><span class="line"></span><span class="label">Registros Marcantes</span></div>

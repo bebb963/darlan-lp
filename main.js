@@ -94,6 +94,21 @@
     document.getElementById(id).addEventListener('input', function(){ this.style.borderColor = ''; });
   });
 
+  /* Vídeos do YouTube tocando dentro da página */
+  document.querySelectorAll('.video-facade[data-video-id]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var wrap = btn.closest('.video-media-wrap');
+      var iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube-nocookie.com/embed/' + btn.dataset.videoId + '?autoplay=1&rel=0';
+      iframe.title = btn.getAttribute('aria-label') || 'Vídeo do YouTube';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      iframe.allowFullscreen = true;
+      iframe.setAttribute('loading', 'lazy');
+      wrap.innerHTML = '';
+      wrap.appendChild(iframe);
+    });
+  });
+
   /* Lightbox da galeria */
   var lightbox = document.getElementById('lightbox');
   var lightboxImg = document.getElementById('lightboxImg');
