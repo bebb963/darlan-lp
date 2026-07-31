@@ -24,10 +24,28 @@
 /* ============ Reset ============ */
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;overflow-x:clip}
+/* Fundo único e contínuo pintado direto no body — rola junto com a página
+   (não é fixo, não se repete por seção), então não existe costura entre
+   seções: é a mesma pintura do topo ao fim. As manchas radiais e os tons do
+   gradiente linear vão variando ao longo do scroll para dar movimento. */
 body{
-  background:var(--noite);color:var(--voz);
+  color:var(--voz);
   font-family:var(--font-corpo);font-size:16px;line-height:1.7;
   overflow-x:hidden;-webkit-font-smoothing:antialiased;
+  background-color:#0d0c0b;
+  background-image:
+    radial-gradient(ellipse 900px 620px at 12% 2%,rgba(255,127,28,.12),transparent 55%),
+    radial-gradient(ellipse 820px 600px at 90% 12%,rgba(246,225,186,.06),transparent 52%),
+    radial-gradient(ellipse 950px 700px at 4% 26%,rgba(255,127,28,.06),transparent 55%),
+    radial-gradient(ellipse 900px 680px at 94% 40%,rgba(246,225,186,.055),transparent 52%),
+    radial-gradient(ellipse 1000px 760px at 8% 56%,rgba(255,127,28,.09),transparent 55%),
+    radial-gradient(ellipse 900px 700px at 92% 70%,rgba(246,225,186,.05),transparent 52%),
+    radial-gradient(ellipse 950px 720px at 10% 84%,rgba(255,127,28,.075),transparent 55%),
+    radial-gradient(ellipse 900px 680px at 88% 96%,rgba(246,225,186,.05),transparent 52%),
+    linear-gradient(180deg,
+      #1d160f 0%,#191410 5%,#110f0d 14%,#151110 23%,#0d0c0b 33%,
+      #1a140e 44%,#120f0d 55%,#17130f 65%,#0d0c0b 76%,
+      #191310 85%,#0f0d0c 93%,#080706 100%);
 }
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
@@ -47,22 +65,6 @@ h1,h2,h3{font-family:var(--font-display);line-height:1.08}
 .section{padding:clamp(72px,11vw,140px) var(--gutter);position:relative;overflow:hidden}
 .container{max-width:1200px;margin:0 auto;position:relative;z-index:2}
 .kicker{display:flex;align-items:center;gap:16px;margin-bottom:20px}
-
-.bg-palco{background:transparent}
-
-/* ============ Fundo ambiente ============ */
-/* Camada única, fixa atrás de tudo: substitui os blocos de cor sólida por um
-   gradiente contínuo com pontos de luz sutis, criando harmonia entre as seções */
-.ambient-bg{
-  position:fixed;inset:0;z-index:-1;pointer-events:none;
-  background:
-    radial-gradient(ellipse 720px 520px at 8% -4%,rgba(255,127,28,.09),transparent 60%),
-    radial-gradient(ellipse 820px 600px at 96% 12%,rgba(246,225,186,.055),transparent 55%),
-    radial-gradient(ellipse 900px 700px at 12% 52%,rgba(255,127,28,.05),transparent 60%),
-    radial-gradient(ellipse 800px 620px at 92% 74%,rgba(246,225,186,.045),transparent 55%),
-    radial-gradient(ellipse 900px 700px at 18% 100%,rgba(255,127,28,.06),transparent 55%),
-    linear-gradient(180deg,#171511 0%,#131210 22%,#0e0d0c 48%,#131211 74%,#0b0a09 100%);
-}
 
 /* ============ Animações ============ */
 @keyframes floatEmber{
@@ -106,14 +108,17 @@ h1,h2,h3{font-family:var(--font-display);line-height:1.08}
   mix-blend-mode:overlay;
 }
 
-/* Scroll reveal */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
-.reveal.in{opacity:1;transform:none}
+/* Scroll reveal — blocos "surgem" do fundo contínuo: sobem, ganham foco e nitidez */
+.reveal{
+  opacity:0;transform:translateY(32px) scale(.97);filter:blur(6px);
+  transition:opacity .8s var(--ease-out),transform .8s var(--ease-out),filter .8s var(--ease-out);
+}
+.reveal.in{opacity:1;transform:none;filter:blur(0)}
 .reveal-d1{transition-delay:.1s}
 .reveal-d2{transition-delay:.2s}
 .reveal-d3{transition-delay:.3s}
 @media(prefers-reduced-motion:reduce){
-  .reveal{opacity:1;transform:none;transition:none}
+  .reveal{opacity:1;transform:none;filter:none;transition:none}
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
@@ -305,14 +310,14 @@ h1,h2,h3{font-family:var(--font-display);line-height:1.08}
 .form-banner-overlay small{color:var(--plateia);font-size:12px}
 
 /* ============ Footer ============ */
-footer{background:linear-gradient(180deg,transparent 0%,#050505 30%);border-top:1px solid var(--linha-forte);padding:56px var(--gutter) calc(40px + env(safe-area-inset-bottom));text-align:center;position:relative}
+footer{background:linear-gradient(180deg,transparent 0%,#080706 40%);border-top:1px solid var(--linha-forte);padding:56px var(--gutter) calc(40px + env(safe-area-inset-bottom));text-align:center;position:relative}
 .btn-top-circle{width:52px;height:52px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:rgba(255,182,139,.08);border:1px solid var(--linha-forte);color:var(--ouro);box-shadow:0 8px 24px rgba(0,0,0,.4);transition:transform .3s var(--ease-out),background .3s,border-color .3s,color .3s,box-shadow .3s}
 .btn-top-circle:hover{transform:translateY(-4px) scale(1.06);background:var(--brasa);border-color:var(--brasa);color:#1a0d00;box-shadow:0 0 28px rgba(255,127,28,.45)}
 .footer-brand-imgs{display:flex;align-items:center;justify-content:center;gap:36px;margin-bottom:24px;flex-wrap:wrap}
 .footer-img-1{height:90px;width:auto;object-fit:contain}
 .footer-img-2{height:84px;width:auto;object-fit:contain}
-.footer-social{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:20px 0 24px}
-.footer-social a{font-family:var(--font-label);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--plateia);padding:10px 16px;transition:color .2s}
+.footer-social{display:flex;flex-wrap:nowrap;justify-content:center;gap:clamp(8px,2vw,16px);margin:20px 0 24px}
+.footer-social a{font-family:var(--font-label);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--plateia);padding:8px 12px;white-space:nowrap;flex-shrink:0;transition:color .2s}
 .footer-social a:hover{color:var(--ouro)}
 footer small{color:var(--sombra-texto);font-size:13px}
 
